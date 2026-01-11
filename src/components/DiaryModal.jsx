@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import DiaryCard from "./DiaryCard";
 
 export default function DiaryModal() {
   const [diaryDetails, setDiaryDetails] = useState(() => {
@@ -15,22 +16,23 @@ export default function DiaryModal() {
   };
 
   const submitAction = async (diaryDetails) => {
-    const title = diaryDetails.get("title");
-    const date = diaryDetails.get("date");
-    const img = diaryDetails.get("img");
-    const content = diaryDetails.get("content");
+    //get the values from input
     const newDiary = {
-      title: title,
-      date: date,
-      img: img,
-      content: content,
+      id: crypto.randomUUID(),
+      title: diaryDetails.get("title"),
+      date: diaryDetails.get("date"),
+      img: diaryDetails.get("img"),
+      content: diaryDetails.get("content"),
     };
 
+    //update the input to DiaryDetails with previous value
     setDiaryDetails((prev) => {
       return [...prev, newDiary];
     });
+
+    // close modal
+    document.getElementById("my_modal_1").close();
   };
-  console.log(diaryDetails);
 
   return (
     <div>
