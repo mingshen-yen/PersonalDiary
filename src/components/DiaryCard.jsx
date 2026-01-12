@@ -25,6 +25,7 @@ export default function DiaryCard({ diary }) {
         </div>
       </div>
       <dialog ref={modalRefDiary} className="modal">
+        <div className="absolute inset-0 bg-black/40" onClick={() => modalRefDiary.current?.close()} />
         <div className="modal-box">
           {!diary ? (
             <p>No diary selected</p>
@@ -40,11 +41,15 @@ export default function DiaryCard({ diary }) {
                   <X className="w-4 h-4" />
                 </button>
               </div>
-              <p className="text-sm opacity-70 text-right">{diary.date}</p>
+
               <div className="mt-4">
                 <img src={diary.img} alt={diary.title} className="w-full rounded-lg" />
               </div>
-              <p className="mt-4 whitespace-pre-wrap">{diary.content}</p>
+              <p className="text-sm p-2 opacity-70 text-right">{diary.date}</p>
+              <p className="p-3 whitespace-pre-wrap">{diary.content}</p>
+              {/* <div className="flex justify-end">
+                <button>Edit</button>
+              </div> */}
             </>
           )}
         </div>

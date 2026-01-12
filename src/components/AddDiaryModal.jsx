@@ -46,6 +46,7 @@ export default function AddDiaryModal({ diaryDetails, setDiaryDetails }) {
         + New
       </button>
       <dialog ref={modalRef} className="modal">
+        <div className="absolute inset-0 bg-black/40" onClick={() => modalRef.current?.close()} />
         <div className="modal-box text-black">
           <div className="flex justify-between p-1">
             <h2 className="text-2xl font-bold text-cyan-500">Create New Entry</h2>
@@ -83,6 +84,7 @@ export default function AddDiaryModal({ diaryDetails, setDiaryDetails }) {
                   name="title"
                   placeholder="Enter a title..."
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all"
+                  required
                 />
               </div>
               <div>
@@ -95,6 +97,7 @@ export default function AddDiaryModal({ diaryDetails, setDiaryDetails }) {
                   rows={6}
                   placeholder="Write your thoughts, experiences, and memories..."
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all"
+                  required
                 />
               </div>
               <div>

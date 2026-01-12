@@ -17,7 +17,7 @@ const App = () => {
 
   return (
     <>
-      <header className="flex flex-row justify-between">
+      <header className="flex flex-wrap md:flex-row justify-between gap-2">
         <div>
           <h1>My Diary</h1>
           <span>Capture your daily moments and memories</span>
@@ -38,7 +38,7 @@ const App = () => {
             </div>
           </div>
         ) : (
-          <div className="py-10 flex flex-wrap md:flex-row justify-center gap-5">
+          <div className="py-10 flex flex-wrap sm:flex-row justify-center gap-5">
             {sortedDiaries.map((diary) => (
               <DiaryCard key={diary.id} diary={diary} />
             ))}
