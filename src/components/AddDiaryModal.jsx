@@ -42,14 +42,16 @@ export default function AddDiaryModal({ diaryDetails, setDiaryDetails }) {
 
   return (
     <div>
-      <button onClick={handleAdd}>+ New</button>
+      <button onClick={handleAdd} className="cursor-pointer hover:shadow-lg hover:shadow-gray-500 transition">
+        + New
+      </button>
       <dialog ref={modalRef} className="modal">
         <div className="modal-box text-black">
           <div className="flex justify-between p-1">
             <h2 className="text-2xl font-bold text-cyan-500">Create New Entry</h2>
             <button
               onClick={() => modalRef.current?.close()}
-              className="text-white/90 hover:text-white transition-colors"
+              className="text-white/90 cursor-pointer hover:shadow-lg hover:shadow-gray-500 transition"
               aria-label="Close form"
             >
               <X className="w-4 h-4" />
@@ -114,7 +116,10 @@ export default function AddDiaryModal({ diaryDetails, setDiaryDetails }) {
                 </span>
               </div>
               <div className="flex gap-2 mt-3">
-                <button type="submit" className="w-full">
+                <button
+                  type="submit"
+                  className="w-full cursor-pointer hover:shadow-lg hover:shadow-gray-500 transition"
+                >
                   Create Entry
                 </button>
               </div>

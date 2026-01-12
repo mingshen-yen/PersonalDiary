@@ -13,15 +13,15 @@ export default function DiaryCard({ diary }) {
       <div
         onClick={() => handleShow(diary)}
         key={diary.id}
-        className="card bg-base-100 w-100 shadow-sm cursor-pointer hover:shadow-xl transition"
+        className="card bg-base-100 w-100 shadow-sm cursor-pointer hover:scale-105 hover:shadow-2xl duration-300"
       >
         <figure>
           <img src={diary.img} alt="img" />
         </figure>
         <div className="card-body">
-          <span className=" text-cyan-700 text-sm text-right">{diary.date}</span>
-          <h2 className="text-blue-800 font-bold text-2xl">{diary.title}</h2>
-          <p>{diary.content}</p>
+          <span className=" text-gray-600 text-sm text-right">{diary.date}</span>
+          <h2 className="text-cyan-500 font-bold text-2xl">{diary.title}</h2>
+          <p className="line-clamp-1 text-sm opacity-80">{diary.content}</p>
         </div>
       </div>
       <dialog ref={modalRefDiary} className="modal">
@@ -34,7 +34,7 @@ export default function DiaryCard({ diary }) {
                 <h2 className="text-2xl font-bold text-cyan-500">{diary.title}</h2>
                 <button
                   onClick={() => modalRefDiary.current?.close()}
-                  className="text-white/90 hover:text-white cursor-pointer hover:shadow-xl transition"
+                  className="text-white/90 cursor-pointer hover:shadow-lg hover:shadow-gray-500 transition"
                   aria-label="Close form"
                 >
                   <X className="w-4 h-4" />
