@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useRef } from "react";
 import { X } from "lucide-react";
 
 export default function AddDiaryModal({ diaryDetails, setDiaryDetails }) {

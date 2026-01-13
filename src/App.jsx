@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import AddDiaryModal from "./components/AddDiaryModal";
 import DiaryCard from "./components/DiaryCard";
 import { Plus } from "lucide-react";
@@ -39,8 +39,8 @@ const App = () => {
           </div>
         ) : (
           <div className="py-10 flex flex-wrap sm:flex-row justify-center gap-5">
-            {sortedDiaries.map((diary) => (
-              <DiaryCard key={diary.id} diary={diary} />
+            {sortedDiaries.map((diary, index) => (
+              <DiaryCard key={diary.id} diary={diary} isFirst={index === 0} />
             ))}
           </div>
         )}
