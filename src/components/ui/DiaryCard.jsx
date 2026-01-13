@@ -16,7 +16,7 @@ export default function DiaryCard({ diary, isFirst }) {
         className="card bg-base-100 w-60 shadow-sm cursor-pointer hover:scale-105 hover:shadow-2xl duration-300"
       >
         {isFirst && <span className="absolute font-bold text-emerald-500 text-base px-2 top-1 left-1">LATEST</span>}
-        <div className="flex items-center gap-1 justify-end text-sm text-blue-950 bg-amber-300 rounded-t px-3 py-1 text-right">
+        <div className="flex items-center gap-1 justify-end text-sm text-blue-950 bg-amber-300 rounded-t-lg px-3 py-1 text-right">
           <Calendar className="w-4" />
           <span>{diary.date}</span>
         </div>

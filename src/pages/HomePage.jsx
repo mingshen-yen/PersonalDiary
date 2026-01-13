@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
 import AddDiaryModal from "../components/ui/AddDiaryModal";
-import DiaryCard from "../components/DiaryCard";
+import DiaryCard from "../components/ui/DiaryCard";
 import { Plus } from "lucide-react";
+import { useAuth } from "../context/AuthContext";
 
-const App = () => {
+export default function HomePage() {
+  const { user } = useAuth();
   const [diaryDetails, setDiaryDetails] = useState(() => {
     const saved = localStorage.getItem("diaryDetails");
     return saved ? JSON.parse(saved) : [];
@@ -24,7 +26,7 @@ const App = () => {
             <span>Capture your daily moments and memories</span>
           </div>
           {/* button for adding new entry */}
-          <AddDiaryModal diaryDetails={diaryDetails} setDiaryDetails={setDiaryDetails} />
+          <AddDiaryModal diaryDetails={diaryDetails} setDiaryDetails={setDiaryDetails} user={user} />
         </div>
       </header>
       {sortedDiaries.length === 0 ? (
@@ -34,8 +36,7 @@ const App = () => {
               <Plus className="w-8 h-8 text-cyan-500" />
             </div>
             <h2 className="text-gray-900 mb-2">No entries yet</h2>
-            <p className="text-gray-600 mb-6">Start your journaling journey by creating your first diary entry</p>
-            <AddDiaryModal diaryDetails={diaryDetails} setDiaryDetails={setDiaryDetails} />
+            <p className="text-gray-600">Start your journaling journey by creating your first diary entry</p>
           </div>
         </div>
       ) : (
@@ -47,6 +48,4 @@ const App = () => {
       )}
     </>
   );
-};
-
-export default App;
+}
